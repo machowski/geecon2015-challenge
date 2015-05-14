@@ -12,7 +12,13 @@ public class Report implements Iterable<ReportedUser> {
     public void add(ReportedUser user) {
         this.users.add(user);
     }
-    
+
+    public void merge(Report report) {
+        for (ReportedUser reportedUser : report) {
+            add(reportedUser);
+        }
+    }
+
     @Override
     public Iterator<ReportedUser> iterator() {
         return Collections.unmodifiableCollection(users).iterator();
